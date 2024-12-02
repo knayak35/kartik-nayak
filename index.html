@@ -3,315 +3,364 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kartik's Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>Kartik Nayak | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <!-- FontAwesome CDN -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Add jQuery -->
 
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: rgb(0, 39, 105);
+            color: white;
+            line-height: 1.6;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Custom Cursor */
+        html {
+            cursor: none;
+        }
+
+        #circularcursor {
+            background-color: greenyellow;  /* Green fill */
+            border: 1px solid black;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            position: absolute;
+            z-index: 9999;
+            pointer-events: none;
+            transition: transform 0.1s ease;
+        }
+
+        /* Header Section */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100vh;
+            padding: 0 10%;
+            background: linear-gradient(to right, rgb(0, 39, 105), #003f8c);
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .header .intro {
+            font-size: 60px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        /* Typing Effect for Name Only */
+        .typing {
+            color: greenyellow;
+            overflow: hidden;
+            border-right: 0.15em solid greenyellow;
+            white-space: nowrap;
+            animation: typing 4s steps(15, end) 1s 1 normal both, blink 0.75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+
+        @keyframes blink {
+            50% {
+                border-color: transparent;
+            }
+        }
+
+        .header .sub-text {
+            font-size: 24px;
+            margin-bottom: 40px;
+            color: #e0e0e0;
+            text-align: center;
+        }
+
+        .header .btn {
+            background-color: greenyellow;
+            color: rgb(0, 39, 105);
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .header .btn:hover {
+            background-color: limegreen;
+        }
+
+        /* Profile Image with Hover Effect */
+        .profile-img {
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            border: 5px solid white;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 10px 4px rgba(255, 255, 255, 0.5);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 60px 10%;
+        }
+
+        .section-title {
+            font-size: 36px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid greenyellow;
+            display: inline-block;
+            padding-bottom: 5px;
+            text-align: center;
+        }
+
+        .section-content {
+            margin-top: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .card {
+            background: white;
+            color: rgb(0, 39, 105);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+            color: rgb(128, 208, 8);
+        }
+
+        /* Skills Section */
+        .skill {
+            background: linear-gradient(to right, greenyellow, limegreen);
+            color: rgb(0, 39, 105);
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #002763;
+            color: #aaa;
+        }
+
+        footer .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        footer .social-icons a {
+            color: greenyellow;
+            font-size: 24px;
+            transition: transform 0.3s ease;
+        }
+
+        footer .social-icons a:hover {
+            transform: scale(1.2);
+        }
+
+        .visit-text {
+            color: #b0b0b0;
+            font-size: 14px;
+            display: inline-block;
+            margin-left: 5px;
+        }
+
+        .line-typing {
+            color: white;
+            font-size: 20px;
+            margin-bottom: 10px;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 0.15em solid greenyellow;
+            animation: line-typing 3s steps(30) 1s 1 normal both, blink 0.75s step-end infinite;
+        }
+
+        @keyframes line-typing {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                align-items: center;
+            }
+            .profile-img {
+                margin-top: 20px;
+            }
+            .section-content {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <br><br><br><br><br>
-    <div class="container">
 
-        <section id="about" style="margin-right: 500px;">
-            <h1 style="font-size: 40px;">👋 Hey there, I'm Kartik.</h1><br><br><br>
-            </section>
-            <section id="about" style="margin-right: 500px;"></section>
-            <p>I'm an <strong>straight-A* Grade 11 student</strong> at a <strong style="color: #ff5733;">Cambridge IGCSE/A Level</strong> school in <strong style="color: #007bff;">Semarang, Indonesia</strong>, with aspirations to become a renowned professor in the computational and natural sciences at an Ivy League university. This year, I've been actively pursuing scienfitic research & innovative projects that intersect technology, mathematics, the social sciences, and solving problems that affect my community.</p>
-            
-            <p>I'm currently <strong style="color: #ffc107;">working on projects</strong> that merge technology and science with social impact! From launching discussions on global affairs to exploring data visualization for social sciences, I’m always looking for new ways to tackle meaningful challenges.</p>
-            
-        </section>
+    <!-- Custom Circular Cursor -->
+    <div id="circularcursor"></div>
 
-        <img src="pic.png" style="position: absolute; width: 15%;
-        left: 850px;
-        top: 130px; border-radius: 50%;">
+    <!-- Header Section with Typing Effect -->
+    <header class="header" style="margin-left: 150px;">
+        <div>
+            <h1 class="intro"><span style="color:white;">Hello, I'm </span><span class="typing">Kartik Nayak</span></h1>
+            <p class="sub-text">Valedictorian | Math Olympiad Gold Medalist | Aspiring Ivy League Professor </p>
+        </div>
+    </header>
 
-        <section id="skills">
-            <h2><u>Skills</u></h2>
-            <ul>
-                <li>Programming Languages: Python, JavaScript, HTML/CSS</li>
-                <li>Data Visualization & Analysis</li>
-                <li>Mathematics & Algorithms</li>
-                <li>Leadership & Team Management</li>
-                <li>Research & Academic Writing</li>
-                <li>Public Speaking & Presentation</li>
-            </ul>
-        </section>
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="section-title">About Me</h2>
+        <div class="section-content">
+            <p style="font-size: 20px;">16-year-old <strong>tech enthusiast</strong> from Bangalore, India. <br><br>
+                Currently residing in Semarang, Indonesia to complete high school at a <strong>Cambridge A-Levels school.</strong> <br><br>
+                Passionate about <strong>mathematics, aerospace, physics, finance, and innovation.</strong> <br><br>
+                Set a goal to educate and inspire people through the <strong>power of experience.</strong> <br><br>
+                Occasional guitarist and cricketer. Avid coder and runner.<br><br>
+            </p>
+            <img src="picture.jpeg" alt="Kartik Nayak" class="profile-img" style="margin-left: 200px;">
+        </div>
+    </section>
 
-        <section id="experience-projects">
-            <h2><u>Experience & Projects</u></h2>
-            <div class="card-container">
-                <!-- Achievement Cards -->
-                <div class="card">
-                    <h3>Global Science Engineering Organization (GSEO)</h3>
-                    <p>Cofounder of a research journal that publishes weekly research papers in STEM, reaching 5,000+ readers across 10 countries, and conducted over 30 interviews with Ivy League students.</p>
-                    <a href="https://gseo.framer.ai/" target="_blank">GSEO Website</a>
-
-                </div>
-                <div class="card">
-                    <h3>Student Council President</h3>
-                    <p>Manager (8th), Vice President (9th), President (10th). Successfully organized the first-ever Prom Night with 80+ participants and earned $2,000 in sponsorships.</p>
-                </div>
-                <div class="card">
-                    <h3>Math Olympiads</h3>
-                    <p>Competed in 50+ national and international math olympiads over 12 years, including in Myanmar, Thailand, Korea, Singapore, Malaysia, and the Philippines.</p>
-                </div>
-                
-                <!-- Project Cards -->
-                <div class="card">
-                    <h3>Bytespace Tech</h3>
-                    <p>Building an impact-based startup with the main goal in mind to provide digital literacy and programming education, all for free. </p>
-                </div>
-                <div class="card">
-                    <h3>Alumni Association Engagement Platform</h3>
-                    <p>Interned at my school to develop an alumni platform, improving engagement among graduates and providing networking opportunities to high school students.</p>
-                </div>
-                <div class="card">
-                    <h3>Tweety Podcast</h3>
-                    <p>Co-founder and chief host of Tweety Podcast, which is a student-led initiative focused on providing valuable insights and advice on topics relevant to high school students. </p>
-                </div>
+    <!-- Education Section -->
+    <section id="education">
+        <h2 class="section-title">Education</h2>
+        <div class="section-content">
+            <div class="card">
+                <h3>SIS Semarang</h3>
+                <p>Valedictorian | Cambridge A-Level Curriculum (6 Subjects) | 7 A*s in IGCSE</p>
+                <p>Courses: Pure Math, Further Math, Computer Science, Physics, Chemistry, Global Perspectives</p>
+                <p>AP Exams: 5s in Calculus BC & Computer Science A</p>
             </div>
-        </section>
-        
-        <section id="contact">
-            <h2>Contact</h2>
-            <p>I'm always open to new opportunities and collaborations. Feel free to reach out to me via LinkedIn, email, or Discord (@karnayak).</p>
-            <div class="social-icons">
-                <a href="https://linkedin.com/in/karnay" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="mailto:nayakartik2008@gmail.com"><i class="fas fa-envelope"></i></a>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2 class="section-title">Projects</h2>
+        <div class="section-content">
+            <div class="card">
+                <h3>📚 GSEO</h3>
+                <p>Co-founder | Published STEM articles, reached 5000+ readers globally, and conducted 30+ Ivy League interviews. <br><br>
+                    <a href="https://gseo.framer.ai" target="_blank" style="color: grey; text-decoration: none;"><i class="fas fa-link"></i> Visit Here</a>
+                </p>
             </div>
-        </section>
-        
+            <div class="card">
+                <h3>🏫 SIS Alumni Platform</h3>
+                <p>Designed and developed a platform to connect school alumni for networking and mentorship.</p>
+            </div>
+            <div class="card">
+                <h3>🎙️ Tweety Podcast</h3>
+                <p>Founder & Host | Focused on student life and challenges, garnering 900+ views on social platforms. <br><br>
+                <a href="https://www.instagram.com/tweetypodcast/" target="_blank" style="color: grey; text-decoration: none;"><i class="fas fa-link"></i> Visit Here</a></p>
+            </div>
+        </div>
+    </section>
 
-        <footer>
-            <p>&copy; 2024 Kartik. All Rights Reserved.</p>
-        </footer>
-    </div>
+    <!-- Activities Section -->
+    <section id="activities">
+        <h2 class="section-title">Activities</h2>
+        <div class="section-content">
+            <div class="card">
+                <h3>🎓 Student Council</h3>
+                <p>President of the Student Council at SIS Semarang. Organized events including the first-ever prom night with over 100 participants, securing $2000 in sponsorships.</p>
+            </div>
+            <div class="card">
+                <h3>➗ Math Olympiads</h3>
+                <p>Gold Medalist at the American Mathematics Olympiad (AMO). Silver Medalist at the Southeast Asian Mathematics Olympiad (SEAMO). 
+                Over 50 medals in 12 years, and traveled to countries like Thailand, the Philippines, Myanmar, South Korea, Malaysia, and Singapore to compete. Represented my school and country in international competitions.</p>
+            </div>
+        </div>
+    </section>
 
-    <script src="script.js"></script>
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2 class="section-title">Skills</h2>
+        <div class="section-content">
+            <div class="skill">Python and Java </div>
+            <div class="skill">HTML, CSS, JavaScript</div>
+            <div class="skill">AI and Machine Learning</div>
+            <div class="skill">Effective Communication</div>
+            <div class="skill">Leadership & Public Speaking</div>
+            <div class="skill">STEM Research</div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Kartik Nayak. All Rights Reserved.</p>
+        <div class="social-icons">
+            <a href="https://github.com/knayak35" target="_blank" aria-label="GitHub">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/karnay" target="_blank" aria-label="LinkedIn">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="mailto:nayakartik2008@gmail.com" target="_blank" aria-label="Email">
+                <i class="fas fa-envelope"></i>
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        $(document).ready(function() {
+            $(document).on('mousemove', function(e) {
+                $('#circularcursor').css({
+                    left: e.pageX - 10,  // Center the cursor
+                    top: e.pageY - 10
+                });
+            });
+        });
+    </script>
 </body>
 </html>
-
-<style>
-
-body {
-    font-family: 'Inter', sans-serif;
-    background-color: #f7f7f7;
-    color: #333;
-    margin: 0;
-    padding: 0;
-    line-height: 1.6;
-}
-
-.container {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 2rem;
-}
-
-/* Header */
-header {
-    text-align: center;
-    margin-bottom: 3rem;
-}
-
-header h1 {
-    font-weight: 700;
-    font-size: 2rem;
-    color: #222;
-    margin-bottom: 1rem;
-}
-
-header nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-}
-
-header nav ul li {
-    display: inline;
-}
-
-header nav ul li a {
-    text-decoration: none;
-    font-weight: 500;
-    color: #007acc;
-    transition: color 0.3s ease;
-}
-
-header nav ul li a:hover {
-    color: #005f99;
-}
-
-
-section h2 {
-    font-weight: 500;
-    font-size: 1.75rem;
-    margin-bottom: 1rem;
-    color: #444;
-}
-
-section p {
-    font-size: 1rem;
-    color: #555;
-    margin: 0 auto 2rem;
-}
-
-section ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-section ul li {
-    font-size: 1rem;
-    color: #555;
-    margin-bottom: 0.5rem;
-}
-
-
-.experience-item {
-    margin-bottom: 2rem;
-}
-
-.experience-item h3 {
-    font-weight: 500;
-    font-size: 1.5rem;
-    color: #333;
-}
-
-.experience-item p {
-    color: #666;
-}
-
-/* Projects */
-.project {
-    margin-bottom: 2rem;
-}
-
-.project h3 {
-    font-weight: 500;
-    font-size: 1.5rem;
-    color: #333;
-}
-
-.project p {
-    color: #666;
-}
-
-/* Footer */
-footer {
-    text-align: center;
-    padding: 2rem 0;
-    font-size: 0.875rem;
-    color: #999;
-}
-
-/* Hover and Interaction */
-a {
-    text-decoration: none;
-    color: #007acc;
-}
-
-a:hover {
-    color: #005f99;
-    text-decoration: underline;
-}
-
-.card-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 2rem;
-}
-
-.card {
-    background-color: #fff;
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    flex: 1 1 calc(33.333% - 2rem); /* 3 cards per row with space in between */
-    max-width: calc(33.333% - 2rem);
-    box-sizing: border-box;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-}
-
-.card h3 {
-    font-weight: 500;
-    font-size: 1.5rem;
-    color: #333;
-    margin-bottom: 1rem;
-}
-
-.card p {
-    color: #666;
-    font-size: 1rem;
-    line-height: 1.5;
-}
-
-/* Card Heading Colors */
-.card h3 {
-    font-weight: 500;
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    color: #007acc; /* Default color for card headings */
-}
-
-/* Specific colors for each card */
-.card:nth-child(1) h3 {
-    color: #ff5733; /* Color for "Founder & Leader at GSEO" */
-}
-
-.card:nth-child(2) h3 {
-    color: #ffc107; /* Color for "Student Council President" */
-}
-
-.card:nth-child(3) h3 {
-    color: #28a745; /* Color for "Math Olympiads Leader" */
-}
-
-.card:nth-child(4) h3 {
-    color: #6f42c1; /* Color for "Indigo Programming Lab" */
-}
-
-.card:nth-child(5) h3 {
-    color: #17a2b8; /* Color for "Youth Exchange Podcast" */
-}
-
-.card:nth-child(6) h3 {
-    color: #e83e8c; /* Color for "The Civic Lens" */
-}
-
-/* Social Icons */
-.social-icons {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 1rem;
-}
-
-.social-icons a {
-    text-decoration: none;
-    font-size: 1.5rem;
-    color: #333;
-    transition: color 0.3s ease;
-}
-
-.social-icons a:hover {
-    color: #007acc; /* Change this color for hover effect */
-}
-
-
-
-</style>
