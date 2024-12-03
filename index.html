@@ -6,11 +6,11 @@
     <title>Kartik Nayak | Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <!-- FontAwesome CDN -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Add jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <style>
+        /* General Styles */
         * {
             margin: 0;
             padding: 0;
@@ -20,13 +20,52 @@
             font-family: 'Poppins', sans-serif;
             background-color: rgb(0, 39, 105);
             color: white;
-            line-height: 1.6;
             overflow-x: hidden;
             scroll-behavior: smooth;
         }
 
-        /* Custom Cursor */
-        html {
+        /* Splash Screen */
+        .splash-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgb(0, 39, 105);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            overflow: hidden;
+        }
+
+        .ripple {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: greenyellow;
+            border-radius: 50%;
+            animation: ripple-animation 2s ease-out forwards;
+        }
+
+        @keyframes ripple-animation {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(100);
+                opacity: 0;
+            }
+        }
+
+        /* Main Content */
+        .main-content {
+            display: none; /* Initially hidden */
+        }
+
+     /* Custom Cursor */
+     html {
             cursor: none;
         }
 
@@ -243,34 +282,60 @@
                 gap: 15px;
             }
         }
+
+        @keyframes wave {
+    0%, 100% { transform: rotate(0); }
+    50% { transform: rotate(20deg); }
+}
+
+.hand-wave {
+    display: inline-block;
+    animation: wave 1.5s infinite;
+}
+        .wave {
+            display: inline-block;
+            font-size: 2rem;
+            margin-left: 10px;
+            animation: wave-animation 1.5s infinite;
+        }
+        @keyframes wave-animation {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(15deg); }
+        }
     </style>
 </head>
 <body>
 
-    <!-- Custom Circular Cursor -->
-    <div id="circularcursor"></div>
+    <!-- Splash Screen -->
+    <div class="splash-screen">
+        <div class="ripple"></div>
+    </div>
 
-    <!-- Header Section with Typing Effect -->
-    <header class="header" style="margin-left: 150px;">
-        <div>
-            <h1 class="intro"><span style="color:white;">Hello, I'm </span><span class="typing">Kartik Nayak</span></h1>
-            <p class="sub-text">Valedictorian | Math Olympiad Gold Medalist | Aspiring Ivy League Professor </p>
-        </div>
-    </header>
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Your existing content goes here -->
+         <center>
+        <header class="header" style="margin-left: 150px;">
+            <div>
+                <h1 style="font-size: 60px;"><span>Hello, I'm </span><span class="typing">Kartik Nayak</span><span class="wave" style="font-size: 60px;">👋</span></h1>
+                <br><br>
+                <p class="sub-text">Valedictorian | Math Olympiad Gold Medalist | Aspiring Ivy League Professor</p>
+            </div>
+        </header>
+    </center>
 
-    <!-- About Section -->
-    <section id="about">
-        <h2 class="section-title">About Me</h2>
-        <div class="section-content">
-            <p style="font-size: 20px;">16-year-old <strong>tech enthusiast</strong> from Bangalore, India. <br><br>
-                Currently residing in Semarang, Indonesia to complete high school at a <strong>Cambridge A-Levels school.</strong> <br><br>
-                Passionate about <strong>mathematics, aerospace, physics, finance, and innovation.</strong> <br><br>
-                Set a goal to educate and inspire people through the <strong>power of experience.</strong> <br><br>
-                Occasional guitarist and cricketer. Avid coder and runner.<br><br>
-            </p>
-            <img src="https://raw.githubusercontent.com/knayak35/kartik-nayak/refs/heads/main/picture.jpeg" alt="Kartik Nayak" class="profile-img" style="margin-left: 200px;">
-        </div>
-    </section>
+        <section id="about">
+            <h2 class="section-title">About Me</h2>
+            <div class="section-content">
+                <p style="font-size: 20px;">16-year-old <strong>tech enthusiast</strong> from Bangalore, India. <br><br>
+                    Currently residing in Semarang, Indonesia to complete high school at a <strong>Cambridge A-Levels school.</strong> <br><br>
+                    Passionate about <strong>mathematics, aerospace, physics, finance, and innovation.</strong> <br><br>
+                    Set a goal to educate and inspire people through the <strong>power of experience.</strong> <br><br>
+                    Occasional guitarist and cricketer. Avid coder and runner.<br><br>
+                </p>
+                <img src="picture.jpeg" alt="Kartik Nayak" class="profile-img" style="margin-left: 200px;">
+            </div>
+        </section>
 
     <!-- Education Section -->
     <section id="education">
@@ -360,6 +425,23 @@
                     top: e.pageY - 10
                 });
             });
+        });
+    </script>
+</body>
+</html>
+    </div>
+
+    <script>
+        // JavaScript for Ripple Effect and Transition to Main Content
+        document.addEventListener("DOMContentLoaded", function() {
+            const splashScreen = document.querySelector(".splash-screen");
+            const mainContent = document.querySelector(".main-content");
+
+            // Remove splash screen after ripple animation
+            setTimeout(() => {
+                splashScreen.style.display = "none";
+                mainContent.style.display = "block"; // Show main content
+            }, 2000); // Match animation duration
         });
     </script>
 </body>
