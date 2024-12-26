@@ -3,447 +3,262 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kartik Nayak | Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
+    <title>Kartik Nayak</title>
+    <!-- Link to Google Fonts Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Link to Font Awesome for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
-        /* General Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        /* Global styles */
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: rgb(0, 39, 105);
-            color: white;
-            overflow-x: hidden;
-            scroll-behavior: smooth;
+            background-color: #f7f7f7;
+            color: #000; /* Default text color (dark mode) */
+            margin-left: 200px;
+            margin-top: 150px;
+            max-width: 1200px;
+            line-height: 1.8;
+            font-size: 18px;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
-        /* Splash Screen */
-        .splash-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgb(0, 39, 105);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            overflow: hidden;
+        /* Override for Kartik's name, keeping it its default color */
+        .highlight-name {
+            color: blueviolet; /* Keeping the name color */
         }
+   /* Toggle button styling */
+   #theme-toggle {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        position: absolute;
+        top: 20px;  /* Adjust the position as needed */
+        right: 20px;
+        z-index: 100;
+        font-size: 24px;  /* Adjust icon size */
+    }
 
-        .ripple {
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background: greenyellow;
-            border-radius: 50%;
-            animation: ripple-animation 2s ease-out forwards;
-        }
+    /* Default moon icon color (black) for light mode */
+    #moon-icon {
+        color: black;  /* Default color for light mode */
+        transition: color 0.3s;
+    }
 
-        @keyframes ripple-animation {
-            0% {
-                transform: scale(1);
-                opacity: 1;
-            }
-            100% {
-                transform: scale(100);
-                opacity: 0;
-            }
-        }
-
-        /* Main Content */
-        .main-content {
-            display: none; /* Initially hidden */
-        }
-
-     /* Custom Cursor */
-     html {
-            cursor: none;
-        }
-
-        #circularcursor {
-            background-color: greenyellow;  /* Green fill */
-            border: 1px solid black;
-            height: 20px;
-            width: 20px;
-            border-radius: 50%;
-            position: absolute;
-            z-index: 9999;
-            pointer-events: none;
-            transition: transform 0.1s ease;
-        }
-
-        /* Header Section */
+    /* Dark mode: change moon icon color to white */
+    .dark-mode #moon-icon {
+        color: white;  /* Change to white when in dark mode */
+    }
         .header {
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            height: 100vh;
-            padding: 0 10%;
-            background: linear-gradient(to right, rgb(0, 39, 105), #003f8c);
-            animation: fadeIn 1.5s ease-in-out;
+            justify-content: flex-start;
+            margin-bottom: 30px;
         }
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
+        .header h1 {
+            margin-right: 20px;
+            font-size: 2rem;
         }
-
-        .header .intro {
-            font-size: 60px;
-            margin-bottom: 20px;
-            text-align: center;
-            font-weight: 700;
-        }
-
-        /* Typing Effect for Name Only */
-        .typing {
-            color: greenyellow;
-            overflow: hidden;
-            border-right: 0.15em solid greenyellow;
-            white-space: nowrap;
-            animation: typing 4s steps(15, end) 1s 1 normal both, blink 0.75s step-end infinite;
-        }
-
-        @keyframes typing {
-            from {
-                width: 0;
-            }
-            to {
-                width: 100%;
-            }
-        }
-
-        @keyframes blink {
-            50% {
-                border-color: transparent;
-            }
-        }
-
-        .header .sub-text {
-            font-size: 24px;
-            margin-bottom: 40px;
-            color: #e0e0e0;
-            text-align: center;
-        }
-
-        .header .btn {
-            background-color: greenyellow;
-            color: rgb(0, 39, 105);
-            border: none;
-            padding: 15px 30px;
-            font-size: 18px;
-            font-weight: 600;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-        .header .btn:hover {
-            background-color: limegreen;
-        }
-
-        /* Profile Image with Hover Effect */
-        .profile-img {
-            width: 350px;
-            height: 350px;
+        .header img {
+            width: 200px;
+            height: 200px;
             border-radius: 50%;
-            border: 5px solid white;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            object-fit: cover;
+            margin-left: auto;
+            margin-right: 300px;
         }
-
-        .profile-img:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 10px 4px rgba(255, 255, 255, 0.5);
+        .social-icons a {
+            margin-right: 15px;
+            font-size: 30px;
+            color: #0077b5;
+            text-decoration: none;
+            position: relative;
+            top: -5px;
         }
-
-        /* Section Styles */
-        section {
-            padding: 60px 10%;
+        .social-icons a:hover {
+            color: #0077b5;
         }
-
+        .intro-text {
+            font-size: 18px;
+            color: #000; /* Slightly lighter text */
+            margin-bottom: 30px;
+        }
         .section-title {
-            font-size: 36px;
-            margin-bottom: 20px;
-            border-bottom: 2px solid greenyellow;
-            display: inline-block;
-            padding-bottom: 5px;
-            text-align: center;
-        }
-
-        .section-content {
-            margin-top: 20px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            justify-content: center;
-        }
-
-        .card {
-            background: white;
-            color: rgb(0, 39, 105);
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
-        }
-
-        .card h3 {
-            margin-bottom: 10px;
-            color: rgb(128, 208, 8);
-        }
-
-        /* Skills Section */
-        .skill {
-            background: linear-gradient(to right, greenyellow, limegreen);
-            color: rgb(0, 39, 105);
-            padding: 10px;
-            border-radius: 5px;
-            text-align: center;
+            font-size: 1.6rem;
             font-weight: 600;
+            color: #000; /* Heading color in dark mode */
+            margin-bottom: 15px;
+            margin-top: 40px;
         }
-
-        footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #002763;
-            color: #aaa;
+        .section-content {
+            margin-bottom: 30px;
         }
-
-        footer .social-icons {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 10px;
+        a {
+            text-decoration: none;
+            color: #0077b5; /* Default link color in dark mode */
+            border-bottom: 1px solid #ccc;
         }
-
-        footer .social-icons a {
-            color: greenyellow;
-            font-size: 24px;
-            transition: transform 0.3s ease;
+        a:hover {
+            color: #0077b5;
+            border-bottom: 1px solid #0077b5;
         }
-
-        footer .social-icons a:hover {
-            transform: scale(1.2);
+        .text-with-margin {
+            margin-right: 200px;
         }
-
-        .visit-text {
-            color: #b0b0b0;
-            font-size: 14px;
+        /* Waving Animation for Hello World */
+        .wave {
             display: inline-block;
-            margin-left: 5px;
-        }
-
-        .line-typing {
-            color: white;
-            font-size: 20px;
-            margin-bottom: 10px;
-            white-space: nowrap;
-            overflow: hidden;
-            border-right: 0.15em solid greenyellow;
-            animation: line-typing 3s steps(30) 1s 1 normal both, blink 0.75s step-end infinite;
-        }
-
-        @keyframes line-typing {
-            from {
-                width: 0;
-            }
-            to {
-                width: 100%;
-            }
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .header {
-                flex-direction: column;
-                align-items: center;
-            }
-            .profile-img {
-                margin-top: 20px;
-            }
-            .section-content {
-                grid-template-columns: 1fr;
-                gap: 15px;
-            }
+            animation: wave 1s infinite alternate;
         }
 
         @keyframes wave {
-    0%, 100% { transform: rotate(0); }
-    50% { transform: rotate(20deg); }
-}
+            0% { transform: rotate(0deg); }
+            25% { transform: rotate(10deg); }
+            50% { transform: rotate(0deg); }
+            75% { transform: rotate(-10deg); }
+            100% { transform: rotate(0deg); }
+        }
 
-.hand-wave {
-    display: inline-block;
-    animation: wave 1.5s infinite;
-}
-        .wave {
-            display: inline-block;
-            font-size: 2rem;
-            margin-left: 10px;
-            animation: wave-animation 1.5s infinite;
-        }
-        @keyframes wave-animation {
-            0%, 100% { transform: rotate(0deg); }
-            50% { transform: rotate(15deg); }
-        }
+     /* Scrollbar styling */
+     ::-webkit-scrollbar {
+        width: 12px; /* Width of the scrollbar */
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: #888; /* Default scrollbar thumb color */
+        border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background-color: #555; /* Hover effect for the thumb */
+    }
+
+    ::-webkit-scrollbar-track {
+        background-color: #f1f1f1; /* Default scrollbar track color (light mode) */
+        border-radius: 10px;
+    }
+
+    /* Scrollbar track and thumb when in dark mode */
+    .dark-mode ::-webkit-scrollbar-track {
+        background-color: black; /* Dark mode track color */
+    }
+
+    .dark-mode ::-webkit-scrollbar-thumb {
+        background-color: #555; /* Dark mode thumb color */
+    }
     </style>
 </head>
 <body>
+    <!-- Button to toggle light/dark theme -->
+    <button id="theme-toggle" onclick="toggleTheme()">
+        <i id="moon-icon" class="fas fa-sun"></i>
+    </button>
+    
 
-    <!-- Splash Screen -->
-    <div class="splash-screen">
-        <div class="ripple"></div>
+    <div class="header">
+        <span class="wave" style="font-size: 30px;">👋 </span>
+        <h1> Hello, world! I'm <strong class="highlight-name">Kartik Nayak.</strong></h1>
+        <img src="picture.jpeg" alt="Kartik's Photo">
     </div>
 
-    <!-- Main Content -->
-    <div class="main-content">
-        <!-- Your existing content goes here -->
-         <center>
-        <header class="header" style="margin-left: 150px;">
-            <div>
-                <h1 style="font-size: 60px;"><span>Hello, I'm </span><span class="typing">Kartik Nayak</span><span class="wave" style="font-size: 60px;">👋</span></h1>
-                <br><br>
-                <p class="sub-text">Driven Innovator | Passionate Educator | Global Competitor in STEM
-</p>
-            </div>
-        </header>
-    </center>
+    <div class="intro-text">
+        <p class="text-with-margin">Hi there! I'm Kartik, a high school junior with a deep passion for mathematics, aerospace, economics, and innovation. Currently, I’m studying at Singapore Intercultural School, Indonesia, where I’m focused on exploring the intersection of technology, education, and global affairs. I aim to create meaningful projects that make learning and technology accessible to everyone.</p>
+    </div>
 
-        <section id="about">
-            <h2 class="section-title">About Me</h2>
-            <div class="section-content">
-                <p style="font-size: 20px;">16-year-old <strong>tech enthusiast</strong> from Bangalore, India. <br><br>
-                    Currently residing in Semarang, Indonesia to complete high school at a <strong>Cambridge A-Levels school.</strong> <br><br>
-                    Passionate about <strong>mathematics, aerospace, physics, finance, and innovation.</strong> <br><br>
-                    Set a goal to educate and inspire people through the <strong>power of experience.</strong> <br><br>
-                    Occasional guitarist and cricketer. Avid coder and runner.<br><br>
-                </p>
-                <img src="picture.jpeg" alt="Kartik Nayak" class="profile-img" style="margin-left: 200px;">
-            </div>
-        </section>
+    <div class="section-title">What I'm Currently Working On</div>
+    <div class="section-content">
+        <p class="text-with-margin">I’m involved in several exciting projects that combine my passion for technology, education, and research:</p>
+        <ul class="text-with-margin">
+            <li><strong>GSEO:</strong> As a co-founder of <a href="https://gseo.framer.ai" target="_blank">GSEO</a>, a research journal, I help publish weekly STEM papers, reaching 5000+ readers globally. We also conduct interviews with top university students to inspire the next generation of researchers.</li>
+            <li><strong>SIS Alumni Platform:</strong> I'm currently working with my school to build an alumni network that connects current students with alumni for mentorship and opportunities.</li>
+            <li><strong>Tweety Podcast:</strong> I'm the chief host of the <a href="https://instagram.com/tweetypodcast" target="_blank">Tweety Podcast</a>, where we discuss topics relevant to high school students. The podcast aims to provide insights on managing academic life, personal growth, and global issues.</li>
+            <li><strong>Star Generation:</strong> I’m currently working as a mentor, providing tutoring in mathematics and science for younger students at <a href="https://stargeneration.net" target="_blank">Star Generation</a>, helping them excel in their academic journeys.</li>
+        </ul>
+    </div>
 
-    <!-- Education Section -->
-    <section id="education">
-        <h2 class="section-title">Education</h2>
-        <div class="section-content">
-            <div class="card">
-                <h3>SIS Semarang</h3>
-                <p>Valedictorian | Cambridge A-Level Curriculum (6 Subjects) | 7 A*s in IGCSE</p>
-                <p>Courses: Pure Math, Further Math, Computer Science, Physics, Chemistry, Global Perspectives</p>
-                <p>AP Exams: 5s in Calculus BC & Computer Science A</p>
-            </div>
-        </div>
-    </section>
+    <div class="section-title">My Previous Works</div>
+    <div class="section-content">
+        <p class="text-with-margin">Throughout my academic career, I’ve had the opportunity to work on various impactful projects that have helped shape my skills and interests:</p>
+        <ul class="text-with-margin">
+            <li><strong>Student Council President:</strong> As the president of my school's student council, I organized events, promoted student welfare, and collaborated with faculty to enhance the school experience. Notably, I organized the first-ever Prom since the pandemic, successfully raising $2000 in sponsorships, which helped fund the event and make it a memorable experience for everyone involved.</li>
 
-    <!-- Projects Section -->
-    <section id="projects">
-        <h2 class="section-title">Projects</h2>
-        <div class="section-content">
-            <div class="card">
-                <h3>📚 GSEO</h3>
-                <p>Co-founder | Published STEM articles, reached 5000+ readers globally, and conducted 30+ Ivy League interviews. <br><br>
-                    <a href="https://gseo.framer.ai" target="_blank" style="color: grey; text-decoration: none;"><i class="fas fa-link"></i> Visit Here</a>
-                </p>
-            </div>
-            <div class="card">
-                <h3>🏫 SIS Alumni Platform</h3>
-                <p>Designed and developed a platform to connect school alumni for networking and mentorship.</p>
-            </div>
-            <div class="card">
-                <h3>🎙️ Tweety Podcast</h3>
-                <p>Founder & Host | Focused on student life and challenges, garnering 900+ views on social platforms. <br><br>
-                <a href="https://www.instagram.com/tweetypodcast/" target="_blank" style="color: grey; text-decoration: none;"><i class="fas fa-link"></i> Visit Here</a></p>
-            </div>
-        </div>
-    </section>
+            <li><strong>ZNotes Internship:</strong> During my internship at <a href="https://znotes.org" target="_blank">ZNotes</a>, I developed educational resources for IGCSE subjects such as Biology, Physics, and Computer Science. This experience helped me refine my communication skills and deepen my knowledge of STEM subjects.</li>
+        </ul>
+    </div>
 
-    <!-- Activities Section -->
-    <section id="activities">
-        <h2 class="section-title">Activities</h2>
-        <div class="section-content">
-            <div class="card">
-                <h3>🎓 Student Council</h3>
-                <p>President of the Student Council at SIS Semarang. Organized events including the first-ever prom night with over 100 participants, securing $2000 in sponsorships.</p>
-            </div>
-            <div class="card">
-                <h3>➗ Math Olympiads</h3>
-                <p>Gold Medalist at the American Mathematics Olympiad (AMO). Silver Medalist at the Southeast Asian Mathematics Olympiad (SEAMO). 
-                Over 50 medals in 12 years, and traveled to countries like Thailand, the Philippines, Myanmar, South Korea, Malaysia, and Singapore to compete. Represented my school and country in international competitions.</p>
-            </div>
-        </div>
-    </section>
+    <div class="section-title">Math Olympiad Journey</div>
+    <div class="section-content">
+        <p class="text-with-margin">Math has always been a core interest of mine, and I’ve had the privilege to participate in 50+ national and international math olympiads for the past 12 years. Some notable achievements of mine include:</p>
+        <ul class="text-with-margin">
+            <li>SEAMO X Gold Medalist (4th in the world), SIMOC Gold Medalist (3rd in the world)</li>
+            <li>Represented Indonesia in prestigious regional and international competitions across countries like Thailand, Singapore, Korea, Malaysia, Myanmar, and the Philippines.</li>
+            <li>Competed in multiple national and international math challenges, where I consistently placed among the top ranks, sharpening my skills in problem-solving and logical reasoning.</li>
+            <li>Earned numerous accolades and awards, including regional and global distinctions, which have inspired me to pursue advanced mathematical research and applications.</li>
+        </ul>
+    </div>
 
-    <!-- Skills Section -->
-    <section id="skills">
-        <h2 class="section-title">Skills</h2>
-        <div class="section-content">
-            <div class="skill">Python and Java </div>
-            <div class="skill">HTML, CSS, JavaScript</div>
-            <div class="skill">AI and Machine Learning</div>
-            <div class="skill">Effective Communication</div>
-            <div class="skill">Leadership & Public Speaking</div>
-            <div class="skill">STEM Research</div>
-        </div>
-    </section>
+    <div class="section-title">My Goals for the Future</div>
+    <div class="section-content">
+        <p class="text-with-margin">Looking ahead, I have clear goals for my personal, academic, and professional development:</p>
+        <ul class="text-with-margin">
+            <li><strong>Academic Pursuit:</strong> I aim to study Computer Science and Mathematics at a prestigious Ivy League Plus university, where I can continue learning from my peers and professors and building my experience in the workforce.</li>
+            <li><strong>Space Exploration:</strong> I am passionate about space exploration and I'm interested in initiatives related to SpaceX's mission to colonize Mars, with a long-term vision of expanding humanity's reach to other planets.</li>
+            <li><strong>Social Impact:</strong> Through my projects and ventures, I want to create more educational opportunities and make learning accessible for all, irrespective of their backgrounds or locations.</li>
+        </ul>
+    </div>
 
-    <!-- Footer -->
-    <footer>
-        <p>© 2024 Kartik Nayak. All Rights Reserved.</p>
-        <div class="social-icons">
-            <a href="https://github.com/knayak35" target="_blank" aria-label="GitHub">
-                <i class="fab fa-github"></i>
-            </a>
-            <a href="https://www.linkedin.com/in/karnay" target="_blank" aria-label="LinkedIn">
-                <i class="fab fa-linkedin"></i>
-            </a>
-            <a href="mailto:nayakartik2008@gmail.com" target="_blank" aria-label="Email">
-                <i class="fas fa-envelope"></i>
-            </a>
-        </div>
-    </footer>
+    <div class="section-title">Connect with me</div>
+    <div class="section-content">
+        <p class="text-with-margin">If you’re interested in collaborating on projects, discussing research, or simply connecting, feel free to reach out! I’m always eager to connect with like-minded individuals, share ideas, and work on initiatives that make a positive impact. </p>
+        <p class="text-with-margin">I look forward to connecting and collaborating with individuals and teams that share my passion for innovation, education, and making a difference.</p>
+    </div>
 
-    <script>
-        $(document).ready(function() {
-            $(document).on('mousemove', function(e) {
-                $('#circularcursor').css({
-                    left: e.pageX - 10,  // Center the cursor
-                    top: e.pageY - 10
-                });
+    <div class="social-icons">
+        <a href="https://www.linkedin.com/in/karnay/" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/KartikNayak" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="mailto:nayakartik2008@gmail.com"><i class="fas fa-envelope"></i></a>
+    </div>
+ <!-- Add this to your JS -->
+<script>
+    function toggleTheme() {
+        var body = document.body;
+        var links = document.querySelectorAll('a');
+        var headings = document.querySelectorAll('.section-title');
+        var introText = document.querySelectorAll('.intro-text');
+        var moonIcon = document.getElementById('moon-icon');  // Moon icon for color change
+        var currentBgColor = window.getComputedStyle(body).backgroundColor;
+
+        // Toggle dark mode class
+        body.classList.toggle('dark-mode');
+
+        // Toggle theme styles
+        if (currentBgColor === 'rgb(28, 28, 28)') {  // Dark mode
+            body.style.backgroundColor = '#f7f7f7';
+            body.style.color = 'black';
+            links.forEach(link => {
+                link.style.color = '#0077b5';  // Light mode link color
             });
-        });
-    </script>
-</body>
-</html>
-    </div>
-
-    <script>
-        // JavaScript for Ripple Effect and Transition to Main Content
-        document.addEventListener("DOMContentLoaded", function() {
-            const splashScreen = document.querySelector(".splash-screen");
-            const mainContent = document.querySelector(".main-content");
-
-            // Remove splash screen after ripple animation
-            setTimeout(() => {
-                splashScreen.style.display = "none";
-                mainContent.style.display = "block"; // Show main content
-            }, 2000); // Match animation duration
-        });
-    </script>
-</body>
-</html>
+            headings.forEach(heading => {
+                heading.style.color = '#000';  // Light mode heading color
+            });
+            introText.forEach(text => {
+                text.style.color = '#000';  // Light mode intro text color
+            });
+            moonIcon.classList.remove('fa-moon');
+            moonIcon.classList.add('fa-sun');  // Switch to sun icon in light mode
+        } else {  // Light mode
+            body.style.backgroundColor = '#1c1c1c';  // Dark grey
+            body.style.color = 'white';
+            links.forEach(link => {
+                link.style.color = '#ddd';  // Dark mode link color
+            });
+            headings.forEach(heading => {
+                heading.style.color = '#fff';  // Dark mode heading color
+            });
+            introText.forEach(text => {
+                text.style.color = '#fff';  // Dark mode intro text color
+            });
+            moonIcon.classList.remove('fa-sun');
+            moonIcon.classList.add('fa-moon');  // Switch back to moon icon in dark mode
+        }
+    }
+</script>
