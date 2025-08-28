@@ -11,7 +11,7 @@
       --bg: #ffffff;
       --bg-elev: #fbfbfd;
       --fg: #0a0a0a;
-      --muted: #6e6e73;
+      --muted: #5b6170;
       --line: rgba(0,0,0,0.08);
       --card: #ffffff;
       --shadow: 0 1px 2px rgba(0,0,0,.06), 0 8px 24px rgba(0,0,0,.06);
@@ -22,15 +22,7 @@
       --pink: #ff2d55;
       --purple: #af52de;
     }
-    [data-theme="dark"] {
-      --bg: #000000;
-      --bg-elev: #0f0f0f;
-      --fg: #f5f5f7;
-      --muted: #b0b0b3;
-      --line: rgba(255,255,255,0.14);
-      --card: #0a0a0a;
-      --shadow: 0 1px 2px rgba(0,0,0,.6), 0 8px 24px rgba(0,0,0,.5);
-    }
+    
 
     * { box-sizing: border-box; }
     html, body { height: 100%; }
@@ -75,7 +67,7 @@
     .lead { font-size: clamp(1.02rem, 1.2vw, 1.2rem); color: var(--muted); max-width:62ch; }
 
     .cta { margin-top: 26px; display:flex; gap:14px; flex-wrap:wrap; }
-    .btn { border: 1px solid var(--fg); background: var(--fg); color: #fff; padding: 12px 18px; border-radius: 12px; font-weight:700; text-decoration:none; display:inline-flex; align-items:center; gap:10px; box-shadow: var(--shadow); transition: transform .15s ease, box-shadow .2s ease; }
+    .btn { border: 1px solid var(--fg); background: var(--fg); color: #0a0a0a; padding: 12px 18px; border-radius: 12px; font-weight:700; text-decoration:none; display:inline-flex; align-items:center; gap:10px; box-shadow: var(--shadow); transition: transform .15s ease, box-shadow .2s ease; }
     .btn:hover{ transform: translateY(-1px); }
     .btn.outline { background: transparent; color: var(--fg); border-color: var(--line); }
     .btn.outline:hover{ border-color: var(--fg); }
@@ -91,14 +83,14 @@
     /* Media panel */
     .holo { border: 1px solid var(--line); border-radius: 18px; background: var(--card); box-shadow: var(--shadow); position:relative; overflow:hidden; }
     .media { padding: 14px; }
-    .frame { position:relative; aspect-ratio:16/9; border-radius: 14px; overflow:hidden; background:#000; }
+    .frame { position:relative; aspect-ratio:16/9; border-radius: 14px; overflow:hidden; background: #ffffff; }
     .frame video, .frame img { width:100%; height:100%; object-fit:cover; display:block; }
     .frame .badge { position:absolute; top:12px; left:12px; background: rgba(255,255,255,.86); color:#000; padding:6px 10px; border-radius:999px; border:1px solid rgba(0,0,0,.08); font-size:.78rem; letter-spacing:.02em; }
 
     /* SECTIONS */
     section { padding:56px 0; }
     .section-title { font-weight:800; font-size: clamp(1.6rem, 2.2vw, 2.1rem); margin-bottom: 18px; position: relative; letter-spacing:-.01em; }
-    .section-title::after{ content:""; position:absolute; left:0; bottom:-10px; width:96px; height:2px; background:#000000; opacity:.12; border-radius:2px; }
+    .section-title::after{ content:""; position:absolute; left:0; bottom:-10px; width:96px; height:2px; background: #ffffff; opacity:.12; border-radius:2px; }
 
     .grid { display:grid; gap:22px; grid-template-columns: repeat(12, 1fr); }
     .col-8 { grid-column: span 8; }
@@ -116,9 +108,63 @@
 
     footer{ padding: 56px 0 80px; color: var(--muted); border-top: 1px solid var(--line); text-align:center; }
   </style>
+<style>
+/* Work list style */
+.work-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-left: 2px solid var(--line);
+}
+
+.work-list li {
+  position: relative;
+  padding: 20px 0 20px 24px;
+}
+
+.work-list li::before {
+  content: "";
+  position: absolute;
+  top: 28px;
+  left: -7px;
+  width: 12px;
+  height: 12px;
+  background: var(--blue);
+  border-radius: 50%;
+}
+
+.work-list h3 {
+  margin: 0 0 6px;
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.work-list p {
+  margin: 0 0 10px;
+  color: var(--muted);
+}
+
+/* Achievements layout fix */
+.achievements .certs { margin: 0; }
+.achievements .certs img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  object-fit: cover;
+}
+@media (max-width: 900px){
+  /* put the image on top on mobile for nicer flow */
+  .achievements .certs { order: -1; }
+}
+
+</style>
 </head>
-<body>
+<body style="background:#ffffff; color:#0a0a0a;">
   <header class="nav">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
     <div class="container nav-inner">
       <div class="brand">Kartik Nayak</div>
       <nav class="nav-links">
@@ -126,134 +172,133 @@
         <a href="#achievements">Achievements</a>
         <a href="#goals">Goals</a>
         <a href="#contact">Contact</a>
-        <button class="theme-btn" id="themeBtn" aria-label="Toggle theme">Appearance</button>
       </nav>
     </div>
   </header>
 
   <main class="container">
     <!-- HERO -->
-    <section class="hero">
-      <div>
-        <div class="super">Hello, world</div>
-        <h1 class="title">I'm Kartik Nayak</h1>
-        <p class="lead">High school student exploring the mathematical and pure sciences. Building projects that make learning and technology accessible for everyone.</p>
-        <div class="accent-dots" aria-label="Brand accents">
-          <span class="dot blue" title="Blue"></span>
-          <span class="dot green" title="Green"></span>
-          <span class="dot orange" title="Orange"></span>
-          <span class="dot pink" title="Pink"></span>
-          <span class="dot purple" title="Purple"></span>
-        </div>
-        <div class="cta">
-          <a class="btn outline" href="#work">Explore my work</a>
-          <a class="btn outline" href="#contact">Contact</a>
-        </div>
-      </div>
 
-      <!-- Media panel with video placeholder -->
-      <aside class="holo media">
-        <div class="frame" id="videoFrame">
-          <span class="badge">Intro video</span>
-          <!-- Replace intro.mp4 and poster.png with your own -->
-          <video id="introVideo" preload="metadata" controls playsinline poster="poster.png">
-            <source src="intro.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-        </div>
-      </aside>
-    </section>
+<section class="hero" style="padding:72px 0; display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center;">
+  <div>
+    <div class="super">Hello, World</div>
+    <h1 class="title">I'm Kartik Nayak</h1>
+    <p class="lead">
+      Ambitious leader and engineer striving to make a difference in the greatest pursuit of science and technology. 
+      Deeply interested in mathematics and the natural sciences. Aspiring to become a well-renowned data scientist, 
+      always learning from peers and mentors around me.
+    </p>
+    <div class="accent-dots">
+      <span class="dot blue"></span>
+      <span class="dot green"></span>
+      <span class="dot orange"></span>
+      <span class="dot pink"></span>
+      <span class="dot purple"></span>
+    </div>
+  </div>
+  <div style="text-align:center;">
+    <img src="picture.png" alt="Kartik Nayak" style="max-width:280px; width:100%; border-radius:50px; box-shadow:0 4px 12px rgba(0,0,0,0.1);" />
+  </div>
+</section>
 
-    <!-- CONTENT -->
-    <section id="work">
-      <h2 class="section-title">What I'm Working On</h2>
-      <div class="grid">
-        <article class="card col-8">
-          <h3>GSEO — Research Journal & Community</h3>
-          <p class="mono">Co‑founder • 5000+ readers • Weekly STEM features</p>
-          <p>Publishers of student‑led STEM research and interviews with top university students, inspiring the next generation of researchers.</p>
-          <p><a class="btn outline" href="https://gseo.framer.ai" target="_blank" rel="noreferrer noopener">Visit GSEO</a></p>
-        </article>
-        <aside class="card col-4">
-          <h3>SIS Alumni Platform</h3>
-          <p class="mono">Product & Development</p>
-          <p>Building a mentorship network that connects students with alumni for real opportunities.</p>
-        </aside>
-        <aside class="card col-4">
-          <h3>Tweety Podcast</h3>
-          <p class="mono">Host</p>
-          <p>Conversations on academics, growth, and global issues for students.</p>
-          <p><a class="btn outline" href="https://instagram.com/tweetypodcast" target="_blank" rel="noreferrer noopener">Follow</a></p>
-        </aside>
-        <aside class="card col-8">
-          <h3>Star Generation — Mentorship</h3>
-          <p class="mono">Math and Science tutoring</p>
-          <ul class="list">
-            <li>Mentoring younger students to build foundational skills.</li>
-            <li>Creating resources that make complex topics feel simple.</li>
-          </ul>
-          <p><a class="btn outline" href="https://stargeneration.net" target="_blank" rel="noreferrer noopener">Website</a></p>
-        </aside>
-      </div>
-    </section>
 
-    <section id="achievements">
-      <h2 class="section-title">Math Olympiad Journey</h2>
-      <div class="grid">
-        <article class="card col-8">
-          <h3>Highlights</h3>
-          <ul class="list">
-            <li>Indonesian National Champion (Rank 1), IYMC 2024</li>
-            <li>SEAMO X Gold Medalist, global rank 4. SIMOC Gold Medalist, global rank 3.</li>
-            <li>Represented Indonesia across Thailand, Singapore, Korea, Malaysia, Myanmar, and the Philippines.</li>
-            <li>50+ national and international competitions over 12 years.</li>
-          </ul>
-        </article>
-        <aside class="card col-4">
-          <h3>Focus</h3>
-          <p class="mono">Problem solving • Logical reasoning • Research mindset</p>
-          <p>Translating contest rigor into research and product building.</p>
-        </aside>
-      </div>
-    </section>
+  <section id="work">
+  <h2 class="section-title">What I'm Working On</h2>
+  <ul class="work-list">
+    <li>
+      <h3>GSEO — Research Journal & Community</h3>
+      <p class="mono">President • 8+ Countries • Breaking Scientific Research</p>
+      <p>Publishing student-led STEM research and interviews with top university students, inspiring the next generation of researchers.</p>
+      <a class="btn outline" href="https://www.gseoglobal.com/" target="_blank" rel="noreferrer noopener">Visit GSEO</a>
+    </li>
+    <li>
+      <h3>Global Visioneers</h3>
+      <p class="mono">Cultural Exchange • Youth Empowerment</p>
+      <p>A student-led nonprofit empowering youth (ages 12–22) through cross-cultural dialogue, language expression, and global citizenry. We drive forums, pen-pal connections, workshops, and inclusion programs with schools worldwide. With 10+ languages, 16 global chapters, and over 20K students engaged, we’re fostering empathy and inclusion across borders. 501(c)(3) since 2019, based in San Diego. </p>
+      <a class="btn outline" href="https://www.globalvisioneers.com" target="_blank" rel="noreferrer noopener">Explore Global Visioneers</a>
+    </li>
+    <li>
+      <h3>Tweety Podcast</h3>
+      <p class="mono">Host</p>
+      <p>Conversations on academics, growth, and global issues for students.</p>
+      <a class="btn outline" href="https://instagram.com/tweetypodcast" target="_blank" rel="noreferrer noopener">Follow</a>
+    </li>
+    <li>
+      <h3>Star Generation — Mentorship</h3>
+      <p class="mono">Math and Science Tutoring</p>
+      <ul class="list">
+        <li>Mentoring younger students to build foundational skills.</li>
+        <li>Creating resources that make complex topics feel simple.</li>
+      </ul>
+      <a class="btn outline" href="https://stargeneration.net" target="_blank" rel="noreferrer noopener">Website</a>
+    </li>
+  </ul>
+</section>
+<section id="achievements" class="achievements">
+  <h2 class="section-title">Math Olympiad Journey</h2>
 
-    <section id="goals">
-      <h2 class="section-title">Where I'm Headed</h2>
-      <div class="grid">
-        <article class="card col-4">
-          <h3>University</h3>
-          <p>Computer Science and Mathematics at a top research university where I can learn, ship, and collaborate.</p>
-        </article>
-        <article class="card col-4">
-          <h3>Aerospace</h3>
-          <p>Work on space systems and missions that expand humanity’s reach beyond Earth.</p>
-        </article>
-        <article class="card col-4">
-          <h3>Access</h3>
-          <p>Build tools that make rigorous learning widely available regardless of background.</p>
-        </article>
-      </div>
-    </section>
+  <div class="grid">
+    <!-- Left: highlights -->
+    <aside class="card col-4">
+      <h3>Highlights</h3>
+      <ul class="list">
+        <li>Indonesian National Champion (Rank 1), IYMC 2024</li>
+        <li>SEAMO X Gold Medalist, global rank 4. SIMOC Gold Medalist, global rank 3.</li>
+        <li>Represented Indonesia across Thailand, Singapore, Korea, Malaysia, Myanmar, and the Philippines.</li>
+        <li>50+ national and international competitions over 12 years.</li>
+      </ul>
+    </aside>
 
-    <section id="contact">
-      <h2 class="section-title">Connect</h2>
-      <div class="grid">
-        <article class="card col-8">
-          <p>Open to collaborations, mentorship conversations, and research ideas. Reach out — I read every message.</p>
-          <div class="social" aria-label="Social links">
-            <a href="https://www.linkedin.com/in/karnay/" target="_blank" rel="noreferrer noopener" aria-label="LinkedIn">in</a>
-            <a href="https://github.com/knayak35" target="_blank" rel="noreferrer noopener" aria-label="GitHub">GH</a>
-            <a href="mailto:nayakartik2008@gmail.com" aria-label="Email">@</a>
-          </div>
-        </article>
-        <aside class="card col-4">
-          <h3>Quick CV</h3>
-          <p class="mono">1 page • PDF</p>
-          <p><a class="btn outline" href="KARTIK NAYAK CV.pdf" target="_blank" return false;">Download</a></p>
-        </aside>
-      </div>
-    </section>
-  </main>
+    <!-- Right: responsive image -->
+    <figure class="col-8 certs">
+      <img src="cert.png" alt="Math Olympiad certificates" loading="lazy">
+    </figure>
+  </div>
+</section>
+
+
+<section id="goals">
+  <h2 class="section-title">Where I'm Headed</h2>
+  <div class="grid">
+    <article class="card col-4">
+      <h3>University</h3>
+      <p>Pursue Computer Engineering and Economics at a top global university, integrating technical knowledge with economic insight to solve complex global challenges.</p>
+    </article>
+    <article class="card col-4">
+      <h3>Scientific Research</h3>
+      <p>Advance research in fields such as artificial intelligence, data science, and engineering systems, contributing to innovations that push the boundaries of technology and discovery.</p>
+    </article>
+    <article class="card col-4">
+      <h3>Leadership & Global Impact</h3>
+      <p>Lead initiatives that bridge education, technology, and mentorship, empowering the next generation of learners and fostering collaboration across cultures and disciplines.</p>
+    </article>
+  </div>
+</section>
+
+
+<section id="contact" class="contact">
+  <h2 class="section-title">Connect</h2>
+
+  <div class="contact-row">
+    <p class="lead">
+      Open to collaborations, mentorship conversations, and research ideas. Reach out — I read every message.
+    </p>
+
+    <div class="social-icons">
+      <a href="https://www.linkedin.com/in/karnay/" target="_blank" aria-label="LinkedIn">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="https://github.com/knayak35" target="_blank" aria-label="GitHub">
+        <i class="fab fa-github"></i>
+      </a>
+      <a href="mailto:nayakartik2008@gmail.com" aria-label="Email">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+
 
   <footer>
     <div class="container">© <span id="y"></span> Kartik Nayak </div>
