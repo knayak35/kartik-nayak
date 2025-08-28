@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Kartik Nayak — Portfolio</title>
+  <title>Kartik Nayak — Portfolio (Bootstrap)</title>
 
   <!-- Bootstrap 5 CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -142,50 +142,61 @@
   </header>
 
   <main>
-<section id="work">
-  <h2 class="section-title">What I'm Working On</h2>
-  <ul class="work-list">
-    <li>
-      <h3>GSEO — Research Journal & Community</h3>
-      <p class="mono">President • 8+ Countries • Breaking Scientific Research</p>
-      <p>Publishing student-led STEM research and interviews with top university students, inspiring the next generation of researchers.</p>
-      <a class="btn outline" href="https://www.gseoglobal.com/" target="_blank" rel="noreferrer noopener">Visit GSEO</a>
-    </li>
-    <li>
-      <h3>Global Visioneers</h3>
-      <p class="mono">Cultural Exchange • Youth Empowerment</p>
-      <p>A student-led nonprofit empowering youth (ages 12–22) through cross-cultural dialogue, language expression, and global citizenry. We drive forums, pen-pal connections, workshops, and inclusion programs with schools worldwide. With 10+ languages, 16 global chapters, and over 20K students engaged, we’re fostering empathy and inclusion across borders. 501(c)(3) since 2019, based in San Diego.</p>
-      <a class="btn outline" href="https://www.globalvisioneers.com" target="_blank" rel="noreferrer noopener">Explore Global Visioneers</a>
-    </li>
-    <li>
-      <h3>Tweety Podcast</h3>
-      <p class="mono">Host</p>
-      <p>Conversations on academics, growth, and global issues for students.</p>
-      <a class="btn outline" href="https://instagram.com/tweetypodcast" target="_blank" rel="noreferrer noopener">Follow</a>
-    </li>
-    <li>
-      <h3>Star Generation — Mentorship</h3>
-      <p class="mono">Math and Science Tutoring</p>
-      <ul class="list">
-        <li>Mentoring younger students to build foundational skills.</li>
-        <li>Creating resources that make complex topics feel simple.</li>
-      </ul>
-      <a class="btn outline" href="https://stargeneration.net" target="_blank" rel="noreferrer noopener">Website</a>
-    </li>
-    <li>
-      <h3>Numbify — Website Development</h3>
-      <p class="mono">Founder & Developer</p>
-      <p>Designing and building an interactive platform for primary students to learn mathematics through lessons, quizzes, and visual tools.</p>
-      <a class="btn outline" href="https://www.numbify.id" target="_blank" rel="noreferrer noopener">Visit Numbify</a>
-    </li>
-    <li>
-      <h3>Research Paper — Oligopoly in Indian Telecom Market</h3>
-      <p class="mono">High School Economics & Machine Learning</p>
-      <p>Analyzing the oligopolistic structure of the Indian telecommunications industry through machine learning models to understand pricing, competition, and consumer impact.</p>
-    </li>
-  </ul>
-</section>
+    <!-- WORK -->
+    <section id="work" class="py-5">
+  <div class="container">
+    <h2 class="h2 fw-bold section-title mb-4">What I'm Working On</h2>
+    <ul class="work-list">
+      <li>
+        <h3 class="h5 fw-bold mb-1">GSEO — Research Journal & Community</h3>
+        <p class="mb-2 text-muted-700"><span class="font-monospace">President • 8+ Countries • Breaking Scientific Research</span></p>
+        <p class="mb-2 text-muted-700">Publishing student-led STEM research and interviews with top university students, inspiring the next generation of researchers.</p>
+        <a class="btn btn-outline-custom btn-sm shadow-soft" href="https://www.gseoglobal.com/" target="_blank" rel="noreferrer noopener">Visit GSEO</a>
+      </li>
+      <li>
+        <h3 class="h5 fw-bold mb-1">Global Visioneers</h3>
+        <p class="mb-2 text-muted-700"><span class="font-monospace">Cultural Exchange • Youth Empowerment</span></p>
+        <p class="mb-2 text-muted-700">
+          A student-led nonprofit empowering youth (ages 12–22) through cross-cultural dialogue, language expression, and global citizenry.
+          We drive forums, pen-pal connections, workshops, and inclusion programs with schools worldwide. With 10+ languages, 16 global chapters,
+          and over 20K students engaged, we’re fostering empathy and inclusion across borders. 501(c)(3) since 2019, based in San Diego.
+        </p>
+        <a class="btn btn-outline-custom btn-sm shadow-soft" href="https://www.globalvisioneers.com" target="_blank" rel="noreferrer noopener">Explore Global Visioneers</a>
+      </li>
+      <li>
+        <h3 class="h5 fw-bold mb-1">Tweety Podcast</h3>
+        <p class="mb-2 text-muted-700"><span class="font-monospace">Host</span></p>
+        <p class="mb-2 text-muted-700">Conversations on academics, growth, and global issues for students.</p>
+        <a class="btn btn-outline-custom btn-sm shadow-soft" href="https://instagram.com/tweetypodcast" target="_blank" rel="noreferrer noopener">Follow</a>
+      </li>
 
+      <!-- NEW: Numbify -->
+      <li>
+        <h3 class="h5 fw-bold mb-1">Numbify — Website Development</h3>
+        <p class="mb-2 text-muted-700"><span class="font-monospace">Founder & Developer</span></p>
+        <p class="mb-2 text-muted-700">Building an interactive platform for primary students to learn mathematics through lessons, quizzes, and visual tools.</p>
+        <a class="btn btn-outline-custom btn-sm shadow-soft" href="https://www.numbify.id" target="_blank" rel="noreferrer noopener">Visit Numbify</a>
+      </li>
+
+      <!-- NEW: Research Paper -->
+      <li>
+        <h3 class="h5 fw-bold mb-1">Research Paper — Oligopoly in Indian Telecom Market</h3>
+        <p class="mb-2 text-muted-700"><span class="font-monospace">High School Economics & Machine Learning</span></p>
+        <p class="mb-2 text-muted-700">Analyzing the oligopolistic structure of the Indian telecommunications industry using machine learning models to study pricing, competition, and consumer impact.</p>
+      </li>
+
+      <li>
+        <h3 class="h5 fw-bold mb-1">Star Generation — Mentorship</h3>
+        <p class="mb-2 text-muted-700"><span class="font-monospace">Math and Science Tutoring</span></p>
+        <ul class="mb-2">
+          <li>Mentoring younger students to build foundational skills.</li>
+          <li>Creating resources that make complex topics feel simple.</li>
+        </ul>
+        <a class="btn btn-outline-custom btn-sm shadow-soft" href="https://stargeneration.net" target="_blank" rel="noreferrer noopener">Website</a>
+      </li>
+    </ul>
+  </div>
+</section>
 
     <!-- ACHIEVEMENTS -->
     <section id="achievements" class="py-5">
