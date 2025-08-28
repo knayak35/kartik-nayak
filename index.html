@@ -1,11 +1,16 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Kartik Nayak — Portfolio</title>
+  <title>Kartik Nayak — Portfolio (Bootstrap)</title>
 
-  <!-- System fonts first for an Apple feel -->
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
   <style>
     :root {
       --bg: #ffffff;
@@ -15,31 +20,21 @@
       --line: rgba(0,0,0,0.08);
       --card: #ffffff;
       --shadow: 0 1px 2px rgba(0,0,0,.06), 0 8px 24px rgba(0,0,0,.06);
-      /* Solid accent colors (Apple-like palette) */
-      --blue: #007aff;  /* primary */
+      --blue: #007aff;
       --green: #34c759;
       --orange: #ff9500;
       --pink: #ff2d55;
       --purple: #af52de;
     }
-    
-
-    * { box-sizing: border-box; }
-    html, body { height: 100%; }
     body {
-      margin: 0;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", Inter, Roboto, "Helvetica Neue", Arial, sans-serif;
       color: var(--fg);
       background: var(--bg);
-      line-height: 1.7;
       letter-spacing: .01em;
-      overflow-x: hidden;
     }
-
-    /* Subtle grid background, very faint */
-    body::before{
+    .bg-grid::before {
       content:""; position: fixed; inset:0; z-index:-1;
       background:
         linear-gradient(transparent 0 98%, var(--line) 98% 100%),
@@ -47,297 +42,236 @@
       background-size: 40px 40px, 40px 40px;
       opacity:.4;
     }
+    .shadow-soft { box-shadow: var(--shadow); }
+    .border-soft { border: 1px solid var(--line); }
+    .text-muted-700 { color: var(--muted); }
 
-    .container { width:min(1120px, 92vw); margin:0 auto; }
-
-    /* NAV */
-    .nav { position: sticky; top:0; z-index: 1000; backdrop-filter: saturate(180%) blur(16px);
-      background: color-mix(in oklab, var(--bg) 90%, transparent); border-bottom: 1px solid var(--line); }
-    .nav-inner { display:flex; align-items:center; justify-content:space-between; padding:16px 0; }
-    .brand { font-weight:700; letter-spacing:.02em; }
-    .nav-links { display:flex; gap:20px; align-items:center; }
-    .nav a { color: var(--fg); text-decoration:none; font-weight:600; opacity:.9; }
-    .theme-btn { border: 1px solid var(--line); background: var(--card); padding: 8px 12px; border-radius: 12px; cursor:pointer; color: var(--fg); box-shadow: var(--shadow); }
-
-    /* HERO */
-    .hero { padding: 72px 0 24px; display:grid; grid-template-columns: 1.15fr .85fr; gap:56px; align-items:center; }
-    @media (max-width: 980px){ .hero{ grid-template-columns:1fr; gap:28px; } }
-    .super { text-transform: uppercase; font-size:.8rem; color:var(--muted); letter-spacing:.12em; font-weight:600; }
-    .title { font-size: clamp(2.4rem, 4vw, 3.8rem); line-height:1.06; margin:.35rem 0 1rem; font-weight:800; letter-spacing:-.01em; }
-    .lead { font-size: clamp(1.02rem, 1.2vw, 1.2rem); color: var(--muted); max-width:62ch; }
-
-    .cta { margin-top: 26px; display:flex; gap:14px; flex-wrap:wrap; }
-    .btn { border: 1px solid var(--fg); background: var(--fg); color: #0a0a0a; padding: 12px 18px; border-radius: 12px; font-weight:700; text-decoration:none; display:inline-flex; align-items:center; gap:10px; box-shadow: var(--shadow); transition: transform .15s ease, box-shadow .2s ease; }
-    .btn:hover{ transform: translateY(-1px); }
-    .btn.outline { background: transparent; color: var(--fg); border-color: var(--line); }
-    .btn.outline:hover{ border-color: var(--fg); }
-
+    /* Dots */
     .accent-dots { display:flex; gap:10px; margin-top:16px; }
-    .dot { width:10px; height:10px; border-radius:50%; border:1px solid var(--line); }
-    .dot.blue{ background: var(--blue); }
-    .dot.green{ background: var(--green); }
-    .dot.orange{ background: var(--orange); }
-    .dot.pink{ background: var(--pink); }
-    .dot.purple{ background: var(--purple); }
+    .accent-dots .dot { width:10px; height:10px; border-radius:50%; border:1px solid var(--line); }
+    .accent-dots .blue{ background: var(--blue); }
+    .accent-dots .green{ background: var(--green); }
+    .accent-dots .orange{ background: var(--orange); }
+    .accent-dots .pink{ background: var(--pink); }
+    .accent-dots .purple{ background: var(--purple); }
 
-    /* Media panel */
-    .holo { border: 1px solid var(--line); border-radius: 18px; background: var(--card); box-shadow: var(--shadow); position:relative; overflow:hidden; }
-    .media { padding: 14px; }
-    .frame { position:relative; aspect-ratio:16/9; border-radius: 14px; overflow:hidden; background: #ffffff; }
-    .frame video, .frame img { width:100%; height:100%; object-fit:cover; display:block; }
-    .frame .badge { position:absolute; top:12px; left:12px; background: rgba(255,255,255,.86); color:#000; padding:6px 10px; border-radius:999px; border:1px solid rgba(0,0,0,.08); font-size:.78rem; letter-spacing:.02em; }
+    /* Timeline bullets for Work */
+    .work-list { list-style:none; margin:0; padding:0 0 0 0.75rem; border-left:2px solid var(--line); }
+    .work-list li { position:relative; padding:1rem 0 1rem 1rem; }
+    .work-list li::before {
+      content:""; position:absolute; top:1.35rem; left:-0.45rem;
+      width:12px; height:12px; background:var(--blue); border-radius:50%;
+    }
 
-    /* SECTIONS */
-    section { padding:56px 0; }
-    .section-title { font-weight:800; font-size: clamp(1.6rem, 2.2vw, 2.1rem); margin-bottom: 18px; position: relative; letter-spacing:-.01em; }
-    .section-title::after{ content:""; position:absolute; left:0; bottom:-10px; width:96px; height:2px; background: #ffffff; opacity:.12; border-radius:2px; }
+    /* Section heading underline */
+    .section-title { position:relative; }
+    .section-title::after {
+      content:""; position:absolute; left:0; bottom:-0.5rem; width:96px; height:2px; background:#000; opacity:.12; border-radius:2px;
+    }
 
-    .grid { display:grid; gap:22px; grid-template-columns: repeat(12, 1fr); }
-    .col-8 { grid-column: span 8; }
-    .col-4 { grid-column: span 4; }
-    @media (max-width: 900px){ .col-8, .col-4 { grid-column: span 12; } }
+    /* Social icons */
+    .social a {
+      width:48px; height:48px; display:grid; place-items:center;
+      border-radius:12px; text-decoration:none; color:var(--fg);
+    }
 
-    .card { padding: 24px; border-radius: 16px; border:1px solid var(--line); background: var(--card); box-shadow: var(--shadow); }
-    .mono { font-family: ui-monospace, Menlo, Monaco, "SF Mono", Consolas, "Liberation Mono", monospace; color: var(--muted); font-size:.95rem; }
-    .list { margin:0; padding-left: 18px; }
-    .list li { margin:8px 0; }
+    /* Card polish */
+    .card-polish { border-radius: 16px; }
+    .lead-tight { line-height: 1.6; }
 
-    .social { display:flex; gap:12px; }
-    .social a { width:42px; height:42px; border-radius:12px; display:grid; place-items:center; color:var(--fg); background:var(--card); border:1px solid var(--line); text-decoration:none; box-shadow: var(--shadow); font-weight:700; }
-    .social a:hover{ outline:2px solid rgba(0,0,0,.08); }
+    /* Improve tap targets on mobile */
+    .btn { border-radius: 12px; }
+    .btn-outline-custom {
+      border: 1px solid var(--line);
+      background: transparent;
+      color: var(--fg);
+    }
+    .btn-outline-custom:hover { border-color: var(--fg); }
 
-    footer{ padding: 56px 0 80px; color: var(--muted); border-top: 1px solid var(--line); text-align:center; }
+    /* Make images nicely rounded */
+    .img-soft { border-radius: 18px; }
   </style>
-<style>
-/* Work list style */
-.work-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  border-left: 2px solid var(--line);
-}
-
-.work-list li {
-  position: relative;
-  padding: 20px 0 20px 24px;
-}
-
-.work-list li::before {
-  content: "";
-  position: absolute;
-  top: 28px;
-  left: -7px;
-  width: 12px;
-  height: 12px;
-  background: var(--blue);
-  border-radius: 50%;
-}
-
-.work-list h3 {
-  margin: 0 0 6px;
-  font-size: 1.15rem;
-  font-weight: 700;
-}
-
-.work-list p {
-  margin: 0 0 10px;
-  color: var(--muted);
-}
-
-/* Achievements layout fix */
-.achievements .certs { margin: 0; }
-.achievements .certs img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 16px;
-  box-shadow: var(--shadow);
-  object-fit: cover;
-}
-@media (max-width: 900px){
-  /* put the image on top on mobile for nicer flow */
-  .achievements .certs { order: -1; }
-}
-
-</style>
 </head>
-<body style="background:#ffffff; color:#0a0a0a;">
-  <header class="nav">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<body class="bg-grid">
 
-    <div class="container nav-inner">
-      <div class="brand">Kartik Nayak</div>
-      <nav class="nav-links">
-        <a href="#work">Work</a>
-        <a href="#achievements">Achievements</a>
-        <a href="#goals">Goals</a>
-        <a href="#contact">Contact</a>
-      </nav>
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-md sticky-top border-bottom" style="backdrop-filter: saturate(180%) blur(16px); background: rgba(255,255,255,0.9);">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">Kartik Nayak</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain" aria-controls="navMain" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMain">
+        <ul class="navbar-nav ms-auto mb-2 mb-md-0 fw-semibold">
+          <li class="nav-item"><a class="nav-link" href="#work">Work</a></li>
+          <li class="nav-item"><a class="nav-link" href="#achievements">Achievements</a></li>
+          <li class="nav-item"><a class="nav-link" href="#goals">Goals</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="container py-5">
+    <div class="row align-items-center g-4 g-lg-5">
+      <div class="col-12 col-lg-7">
+        <div class="text-uppercase small fw-bold text-muted-700">Hello, World</div>
+        <h1 class="display-5 fw-extrabold lh-1 mt-2">I'm Kartik Nayak</h1>
+        <p class="lead lead-tight text-muted-700 mt-3">
+          Ambitious leader and engineer striving to make a difference in the greatest pursuit of science and technology.
+          Deeply interested in mathematics and the natural sciences. Aspiring to become a well-renowned data scientist,
+          always learning from peers and mentors around me.
+        </p>
+        <div class="accent-dots">
+          <span class="dot blue"></span>
+          <span class="dot green"></span>
+          <span class="dot orange"></span>
+          <span class="dot pink"></span>
+          <span class="dot purple"></span>
+        </div>
+        <div class="mt-3">
+          <a class="btn btn-dark me-2 shadow-soft" href="#work">View Work</a>
+          <a class="btn btn-outline-custom shadow-soft" href="#contact">Get in touch</a>
+        </div>
+      </div>
+      <div class="col-12 col-lg-5 text-center">
+        <img src="picture.png" alt="Kartik Nayak" class="img-fluid img-soft shadow-soft" style="max-width:320px;">
+      </div>
     </div>
   </header>
 
-  <main class="container">
-    <!-- HERO -->
+  <main>
+    <!-- WORK -->
+    <section id="work" class="py-5">
+      <div class="container">
+        <h2 class="h2 fw-bold section-title mb-4">What I'm Working On</h2>
+        <ul class="work-list">
+          <li>
+            <h3 class="h5 fw-bold mb-1">GSEO — Research Journal & Community</h3>
+            <p class="mb-2 text-muted-700"><span class="font-monospace">President • 8+ Countries • Breaking Scientific Research</span></p>
+            <p class="mb-2 text-muted-700">Publishing student-led STEM research and interviews with top university students, inspiring the next generation of researchers.</p>
+            <a class="btn btn-outline-custom btn-sm shadow-soft" href="https://www.gseoglobal.com/" target="_blank" rel="noreferrer noopener">Visit GSEO</a>
+          </li>
+          <li>
+            <h3 class="h5 fw-bold mb-1">Global Visioneers</h3>
+            <p class="mb-2 text-muted-700"><span class="font-monospace">Cultural Exchange • Youth Empowerment</span></p>
+            <p class="mb-2 text-muted-700">
+              A student-led nonprofit empowering youth (ages 12–22) through cross-cultural dialogue, language expression, and global citizenry.
+              We drive forums, pen-pal connections, workshops, and inclusion programs with schools worldwide. With 10+ languages, 16 global chapters,
+              and over 20K students engaged, we’re fostering empathy and inclusion across borders. 501(c)(3) since 2019, based in San Diego.
+            </p>
+            <a class="btn btn-outline-custom btn-sm shadow-soft" href="https://www.globalvisioneers.com" target="_blank" rel="noreferrer noopener">Explore Global Visioneers</a>
+          </li>
+          <li>
+            <h3 class="h5 fw-bold mb-1">Tweety Podcast</h3>
+            <p class="mb-2 text-muted-700"><span class="font-monospace">Host</span></p>
+            <p class="mb-2 text-muted-700">Conversations on academics, growth, and global issues for students.</p>
+            <a class="btn btn-outline-custom btn-sm shadow-soft" href="https://instagram.com/tweetypodcast" target="_blank" rel="noreferrer noopener">Follow</a>
+          </li>
+          <li>
+            <h3 class="h5 fw-bold mb-1">Star Generation — Mentorship</h3>
+            <p class="mb-2 text-muted-700"><span class="font-monospace">Math and Science Tutoring</span></p>
+            <ul class="mb-2">
+              <li>Mentoring younger students to build foundational skills.</li>
+              <li>Creating resources that make complex topics feel simple.</li>
+            </ul>
+            <a class="btn btn-outline-custom btn-sm shadow-soft" href="https://stargeneration.net" target="_blank" rel="noreferrer noopener">Website</a>
+          </li>
+        </ul>
+      </div>
+    </section>
 
-<section class="hero" style="padding:72px 0; display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center;">
-  <div>
-    <div class="super">Hello, World</div>
-    <h1 class="title">I'm Kartik Nayak</h1>
-    <p class="lead">
-      Ambitious leader and engineer striving to make a difference in the greatest pursuit of science and technology. 
-      Deeply interested in mathematics and the natural sciences. Aspiring to become a well-renowned data scientist, 
-      always learning from peers and mentors around me.
-    </p>
-    <div class="accent-dots">
-      <span class="dot blue"></span>
-      <span class="dot green"></span>
-      <span class="dot orange"></span>
-      <span class="dot pink"></span>
-      <span class="dot purple"></span>
+    <!-- ACHIEVEMENTS -->
+    <section id="achievements" class="py-5">
+      <div class="container">
+        <h2 class="h2 fw-bold section-title mb-4">Math Olympiad Journey</h2>
+        <div class="row g-3">
+          <aside class="col-12 col-md-5 col-lg-4">
+            <div class="card card-polish border-soft shadow-soft h-100">
+              <div class="card-body">
+                <h3 class="h5 fw-bold">Highlights</h3>
+                <ul class="mt-2 mb-0">
+                  <li>Indonesian National Champion (Rank 1), IYMC 2024</li>
+                  <li>SEAMO X Gold Medalist, global rank 4. SIMOC Gold Medalist, global rank 3.</li>
+                  <li>Represented Indonesia across Thailand, Singapore, Korea, Malaysia, Myanmar, and the Philippines.</li>
+                  <li>50+ national and international competitions over 12 years.</li>
+                </ul>
+              </div>
+            </div>
+          </aside>
+          <figure class="col-12 col-md-7 col-lg-8 m-0">
+            <img src="cert.png" alt="Math Olympiad certificates" class="img-fluid img-soft shadow-soft w-100"/>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- GOALS -->
+    <section id="goals" class="py-5">
+      <div class="container">
+        <h2 class="h2 fw-bold section-title mb-4">Where I'm Headed</h2>
+        <div class="row g-3">
+          <article class="col-12 col-md-6 col-lg-4">
+            <div class="card card-polish border-soft shadow-soft h-100">
+              <div class="card-body">
+                <h3 class="h5 fw-bold">University</h3>
+                <p class="mb-0">Pursue Computer Engineering and Economics at a top global university, integrating technical knowledge with economic insight to solve complex global challenges.</p>
+              </div>
+            </div>
+          </article>
+          <article class="col-12 col-md-6 col-lg-4">
+            <div class="card card-polish border-soft shadow-soft h-100">
+              <div class="card-body">
+                <h3 class="h5 fw-bold">Scientific Research</h3>
+                <p class="mb-0">Advance research in fields such as artificial intelligence, data science, and engineering systems, contributing to innovations that push the boundaries of technology and discovery.</p>
+              </div>
+            </div>
+          </article>
+          <article class="col-12 col-md-6 col-lg-4">
+            <div class="card card-polish border-soft shadow-soft h-100">
+              <div class="card-body">
+                <h3 class="h5 fw-bold">Leadership & Global Impact</h3>
+                <p class="mb-0">Lead initiatives that bridge education, technology, and mentorship, empowering the next generation of learners and fostering collaboration across cultures and disciplines.</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="py-5">
+      <div class="container">
+        <h2 class="h2 fw-bold section-title mb-4">Connect</h2>
+        <div class="row align-items-center g-3">
+          <div class="col-12 col-lg-7">
+            <p class="lead lead-tight text-muted-700 mb-0">
+              Open to collaborations, mentorship conversations, and research ideas. Reach out — I read every message.
+            </p>
+          </div>
+          <div class="col-12 col-lg-5">
+            <div class="d-flex gap-2 gap-md-3">
+              <a class="social border-soft shadow-soft" href="https://www.linkedin.com/in/karnay/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin fa-lg"></i></a>
+              <a class="social border-soft shadow-soft" href="https://github.com/knayak35" target="_blank" aria-label="GitHub"><i class="fab fa-github fa-lg"></i></a>
+              <a class="social border-soft shadow-soft" href="mailto:nayakartik2008@gmail.com" aria-label="Email"><i class="fas fa-envelope fa-lg"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="py-5 border-top">
+    <div class="container text-center text-muted-700">
+      © <span id="y"></span> Kartik Nayak
     </div>
-  </div>
-  <div style="text-align:center;">
-    <img src="picture.png" alt="Kartik Nayak" style="max-width:280px; width:100%; border-radius:50px; box-shadow:0 4px 12px rgba(0,0,0,0.1);" />
-  </div>
-</section>
-
-
-  <section id="work">
-  <h2 class="section-title">What I'm Working On</h2>
-  <ul class="work-list">
-    <li>
-      <h3>GSEO — Research Journal & Community</h3>
-      <p class="mono">President • 8+ Countries • Breaking Scientific Research</p>
-      <p>Publishing student-led STEM research and interviews with top university students, inspiring the next generation of researchers.</p>
-      <a class="btn outline" href="https://www.gseoglobal.com/" target="_blank" rel="noreferrer noopener">Visit GSEO</a>
-    </li>
-    <li>
-      <h3>Global Visioneers</h3>
-      <p class="mono">Cultural Exchange • Youth Empowerment</p>
-      <p>A student-led nonprofit empowering youth (ages 12–22) through cross-cultural dialogue, language expression, and global citizenry. We drive forums, pen-pal connections, workshops, and inclusion programs with schools worldwide. With 10+ languages, 16 global chapters, and over 20K students engaged, we’re fostering empathy and inclusion across borders. 501(c)(3) since 2019, based in San Diego. </p>
-      <a class="btn outline" href="https://www.globalvisioneers.com" target="_blank" rel="noreferrer noopener">Explore Global Visioneers</a>
-    </li>
-    <li>
-      <h3>Tweety Podcast</h3>
-      <p class="mono">Host</p>
-      <p>Conversations on academics, growth, and global issues for students.</p>
-      <a class="btn outline" href="https://instagram.com/tweetypodcast" target="_blank" rel="noreferrer noopener">Follow</a>
-    </li>
-    <li>
-      <h3>Star Generation — Mentorship</h3>
-      <p class="mono">Math and Science Tutoring</p>
-      <ul class="list">
-        <li>Mentoring younger students to build foundational skills.</li>
-        <li>Creating resources that make complex topics feel simple.</li>
-      </ul>
-      <a class="btn outline" href="https://stargeneration.net" target="_blank" rel="noreferrer noopener">Website</a>
-    </li>
-  </ul>
-</section>
-<section id="achievements" class="achievements">
-  <h2 class="section-title">Math Olympiad Journey</h2>
-
-  <div class="grid">
-    <!-- Left: highlights -->
-    <aside class="card col-4">
-      <h3>Highlights</h3>
-      <ul class="list">
-        <li>Indonesian National Champion (Rank 1), IYMC 2024</li>
-        <li>SEAMO X Gold Medalist, global rank 4. SIMOC Gold Medalist, global rank 3.</li>
-        <li>Represented Indonesia across Thailand, Singapore, Korea, Malaysia, Myanmar, and the Philippines.</li>
-        <li>50+ national and international competitions over 12 years.</li>
-      </ul>
-    </aside>
-
-    <!-- Right: responsive image -->
-    <figure class="col-8 certs">
-      <img src="cert.png" alt="Math Olympiad certificates" loading="lazy">
-    </figure>
-  </div>
-</section>
-
-
-<section id="goals">
-  <h2 class="section-title">Where I'm Headed</h2>
-  <div class="grid">
-    <article class="card col-4">
-      <h3>University</h3>
-      <p>Pursue Computer Engineering and Economics at a top global university, integrating technical knowledge with economic insight to solve complex global challenges.</p>
-    </article>
-    <article class="card col-4">
-      <h3>Scientific Research</h3>
-      <p>Advance research in fields such as artificial intelligence, data science, and engineering systems, contributing to innovations that push the boundaries of technology and discovery.</p>
-    </article>
-    <article class="card col-4">
-      <h3>Leadership & Global Impact</h3>
-      <p>Lead initiatives that bridge education, technology, and mentorship, empowering the next generation of learners and fostering collaboration across cultures and disciplines.</p>
-    </article>
-  </div>
-</section>
-
-
-<section id="contact" class="contact">
-  <h2 class="section-title">Connect</h2>
-
-  <div class="contact-row">
-    <p class="lead">
-      Open to collaborations, mentorship conversations, and research ideas. Reach out — I read every message.
-    </p>
-
-    <div class="social-icons">
-      <a href="https://www.linkedin.com/in/karnay/" target="_blank" aria-label="LinkedIn">
-        <i class="fab fa-linkedin"></i>
-      </a>
-      <a href="https://github.com/knayak35" target="_blank" aria-label="GitHub">
-        <i class="fab fa-github"></i>
-      </a>
-      <a href="mailto:nayakartik2008@gmail.com" aria-label="Email">
-        <i class="fas fa-envelope"></i>
-      </a>
-    </div>
-  </div>
-</section>
-
-
-
-  <footer>
-    <div class="container">© <span id="y"></span> Kartik Nayak </div>
   </footer>
 
+  <!-- Bootstrap 5 JS (with Popper) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   <script>
-    // Year
     document.getElementById('y').textContent = new Date().getFullYear();
-
-    // Theme init
-    const root = document.documentElement;
-    const saved = localStorage.getItem('theme');
-    if (saved) root.setAttribute('data-theme', saved);
-
-    // Theme toggle
-    const btn = document.getElementById('themeBtn');
-    btn.addEventListener('click', () => {
-      const isDark = root.getAttribute('data-theme') === 'dark';
-      if (isDark) {
-        root.removeAttribute('data-theme');
-        localStorage.removeItem('theme');
-      } else {
-        root.setAttribute('data-theme', 'dark');
-        localStorage.setItem('theme', 'dark');
-      }
-    });
-
-    // Video: autoplay on viewport enter (muted for UX)
-    const v = document.getElementById('introVideo');
-    if (v) {
-      v.muted = true;
-      const io = new IntersectionObserver((entries)=>{
-        entries.forEach(ent=>{
-          if(ent.isIntersecting){ v.play().catch(()=>{}); }
-          else { v.pause(); }
-        });
-      }, { threshold: .5 });
-      io.observe(v);
-    }
   </script>
 </body>
 </html>
