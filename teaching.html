@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Teaching & Mentorship — Kartik Nayak</title>
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    :root {
+      --bg: #ffffff;
+      --bg-elev: #fbfbfd;
+      --fg: #0a0a0a;
+      --muted: #5b6170;
+      --line: rgba(0,0,0,0.08);
+      --card: #ffffff;
+      --shadow: 0 1px 2px rgba(0,0,0,.06), 0 8px 24px rgba(0,0,0,.06);
+      --blue: #007aff;
+      --green: #34c759;
+      --orange: #ff9500;
+      --pink: #ff2d55;
+      --purple: #af52de;
+    }
+    body {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", Inter, Roboto, "Helvetica Neue", Arial, sans-serif;
+      color: var(--fg);
+      background: var(--bg);
+      letter-spacing: .01em;
+    }
+    .bg-grid::before {
+      content:""; position: fixed; inset:0; z-index:-1;
+      background:
+        linear-gradient(transparent 0 98%, var(--line) 98% 100%),
+        linear-gradient(90deg, transparent 0 98%, var(--line) 98% 100%);
+      background-size: 40px 40px, 40px 40px;
+      opacity:.4;
+    }
+    .shadow-soft { box-shadow: var(--shadow); }
+    .border-soft { border: 1px solid var(--line); }
+    .text-muted-700 { color: var(--muted); }
+    .section-title { position:relative; }
+    .section-title::after {
+      content:""; position:absolute; left:0; bottom:-0.5rem; width:96px; height:2px; background:#000; opacity:.12; border-radius:2px;
+    }
+    .card-polish { border-radius:16px; background: var(--card); box-shadow: var(--shadow); }
+  </style>
+</head>
+<body class="bg-grid">
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-md sticky-top border-bottom" style="backdrop-filter:saturate(180%) blur(16px); background:rgba(255,255,255,0.9);">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html">Kartik Nayak</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain" aria-controls="navMain" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMain">
+        <ul class="navbar-nav ms-auto mb-2 mb-md-0 fw-semibold">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="math-olympiads.html">Awards</a></li>
+          <li class="nav-item"><a class="nav-link active" href="teaching.html">Teaching</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="container py-5 text-center">
+    <h1 class="display-5 fw-extrabold lh-1">Teaching & Mentorship</h1>
+    <p class="lead text-muted-700 mt-3">Sharing knowledge has been at the core of my journey — from mentoring younger students to building platforms that empower learning globally.</p>
+  </header>
+
+  <!-- CONTENT -->
+  <main class="container py-5">
+    <h2 class="h2 fw-bold section-title mb-4">📚 My Teaching Experience</h2>
+
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4">
+        <div class="card-polish h-100 p-4">
+          <h3 class="h5 fw-bold">Math Olympiad Club</h3>
+          <p class="text-muted-700">Founded and taught a club at my school training <strong>15+ students</strong> in advanced problem-solving for SEAMO, AMO, WMI, and more.</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="card-polish h-100 p-4">
+          <h3 class="h5 fw-bold">Numbify — Founder</h3>
+          <p class="text-muted-700">Built an interactive learning platform with lessons, quizzes, and teacher dashboards for younger students to enjoy math.</p>
+          <a class="btn btn-outline-custom btn-sm shadow-soft mt-2" href="https://www.numbify.id" target="_blank" rel="noreferrer noopener">Visit Numbify</a>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="card-polish h-100 p-4">
+          <h3 class="h5 fw-bold">Star Generation</h3>
+          <p class="text-muted-700">Mentored students in math and science, creating resources that simplify complex topics and inspire confidence. Also began teaching Math Olympiad content to primary school students.</p>
+          <a class="btn btn-outline-custom btn-sm shadow-soft mt-2" href="https://stargeneration.net" target="_blank" rel="noreferrer noopener">Explore</a>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="card-polish h-100 p-4">
+          <h3 class="h5 fw-bold">Python Club</h3>
+          <p class="text-muted-700">Organized coding sessions teaching fundamentals of Python, algorithms, and computational thinking to high school juniors.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SUBJECTS TABLE -->
+    <h2 class="h2 fw-bold section-title mt-5 mb-4">📖 Subjects I Specialize In</h2>
+    <div class="table-responsive">
+      <table class="table table-striped align-middle">
+        <thead class="table-light">
+          <tr>
+            <th>Subject</th>
+            <th>Level</th>
+            <th>Cambridge Code</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Pure Mathematics</td><td>A Level / AS</td><td>9709</td></tr>
+          <tr><td>Chemistry</td><td>A Level / AS</td><td>9701</td></tr>
+          <tr><td>Physics</td><td>A Level / AS</td><td>9702</td></tr>
+          <tr><td>Computer Science</td><td>A Level / AS</td><td>9618</td></tr>
+          <tr><td>Further Mathematics</td><td>A Level / AS</td><td>9231</td></tr>
+          <tr><td>Physics</td><td>IGCSE</td><td>0625</td></tr>
+          <tr><td>Chemistry</td><td>IGCSE</td><td>0620</td></tr>
+          <tr><td>Computer Science</td><td>IGCSE</td><td>0478</td></tr>
+          <tr><td>Additional Mathematics</td><td>IGCSE</td><td>0606</td></tr>
+          <tr><td>Extended Mathematics</td><td>IGCSE</td><td>0580</td></tr>
+          <tr><td>Math Olympiad Training</td><td>Enrichment</td><td>n/a</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="lead text-muted-700 mt-4">If you're a tutoring service or educational institution looking for a math or science tutor, please feel free to reach out: <a href="mailto:nayakartik2008@gmail.com">Shoot Me an Email</a></p>
+  </main>
+
+  <footer class="py-5 border-top">
+    <div class="container text-center text-muted-700">
+      © <span id="y"></span> Kartik Nayak
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Math Olympiad Achievements — Kartik Nayak</title>
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    :root {
+      --bg: #ffffff;
+      --bg-elev: #fbfbfd;
+      --fg: #0a0a0a;
+      --muted: #5b6170;
+      --line: rgba(0,0,0,0.08);
+      --card: #ffffff;
+      --shadow: 0 1px 2px rgba(0,0,0,.06), 0 8px 24px rgba(0,0,0,.06);
+      --blue: #007aff;
+      --green: #34c759;
+      --orange: #ff9500;
+      --pink: #ff2d55;
+      --purple: #af52de;
+    }
+    body {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", Inter, Roboto, "Helvetica Neue", Arial, sans-serif;
+      color: var(--fg);
+      background: var(--bg);
+      letter-spacing: .01em;
+    }
+    .bg-grid::before {
+      content:""; position: fixed; inset:0; z-index:-1;
+      background:
+        linear-gradient(transparent 0 98%, var(--line) 98% 100%),
+        linear-gradient(90deg, transparent 0 98%, var(--line) 98% 100%);
+      background-size: 40px 40px, 40px 40px;
+      opacity:.4;
+    }
+    .shadow-soft { box-shadow: var(--shadow); }
+    .border-soft { border: 1px solid var(--line); }
+    .text-muted-700 { color: var(--muted); }
+
+    .section-title { position:relative; }
+    .section-title::after {
+      content:""; position:absolute; left:0; bottom:-0.5rem; width:96px; height:2px; background:#000; opacity:.12; border-radius:2px;
+    }
+
+    .project-card {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      background: var(--card);
+      box-shadow: var(--shadow);
+      transition: transform 0.2s ease;
+    }
+    .project-card:hover {
+      transform: translateY(-3px);
+    }
+  </style>
+</head>
+<body class="bg-grid">
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-md sticky-top border-bottom" style="backdrop-filter:saturate(180%) blur(16px); background:rgba(255,255,255,0.9);">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html">Kartik Nayak</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain" aria-controls="navMain" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMain">
+        <ul class="navbar-nav ms-auto mb-2 mb-md-0 fw-semibold">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="math-olympiads.html">Awards</a></li>
+          <li class="nav-item"><a class="nav-link" href="teaching.html">Teaching</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="container py-5 text-center">
+    <h1 class="display-5 fw-extrabold lh-1">Math Olympiad Competitions</h1>
+    <p class="lead text-muted-700 mt-3">Celebrating my journey across international and national competitions in problem-solving and mathematics excellence.</p>
+  </header>
+
+  <!-- CONTENT -->
+  <main class="container py-5">
+    <h2 class="h2 fw-bold section-title mb-4">🏆 Top Highlights</h2>
+
+    <div class="project-card">
+      <h3 class="h5 fw-bold">International Youth Math Challenge (IYMC)</h3>
+      <p><span class="text-muted small">2024</span></p>
+      <p>Ranked <strong>#1 in Indonesia</strong>, competing against students worldwide with advanced problem-solving challenges.</p>
+    </div>
+
+    <div class="project-card">
+      <h3 class="h5 fw-bold">SEAMO X International</h3>
+      <p><span class="text-muted small">2022</span></p>
+      <p><strong>Gold Medalist</strong> with <strong>Global Rank 4</strong>, excelling in logic and critical thinking problems across the world.</p>
+    </div>
+
+    <div class="project-card">
+      <h3 class="h5 fw-bold">SIMOC International</h3>
+      <p>Achieved 2 Golds and 1 Silver medal with a <strong>Global Rank 3</strong> finish among international participants.</p>
+    </div>
+
+    <div class="project-card">
+      <h3 class="h5 fw-bold">World Mathematics Invitational (WMI)</h3>
+      <p>Won <strong>Gold ×2, Silver ×2, Bronze ×4</strong>, both nationally and internationally, across multiple years of participation.</p>
+    </div>
+
+    <div class="project-card">
+      <h3 class="h5 fw-bold">World Sakamoto Mathematics Championship</h3>
+      <p>Secured <strong>Gold</strong>, along with <strong>2× Silver</strong> and <strong>1× Bronze</strong> medals, demonstrating versatility in problem-solving.</p>
+    </div>
+
+    <div class="project-card">
+      <h3 class="h5 fw-bold">And many more...</h3>
+      <p>Represented Indonesia in <strong>Thailand, Singapore, Korea, Malaysia, Myanmar, and the Philippines</strong>, bringing home numerous awards.</p>
+    </div>
+  </main>
+
+  <footer class="py-5 border-top">
+    <div class="container text-center text-muted-700">
+      © <span id="y"></span> Kartik Nayak
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
